@@ -1,0 +1,20 @@
+<div class="container">
+  <app-cockpit
+    (serverCreated)="onServerAdded($event)"
+    (blueprintCreated)="onBlueprintAdded($event)">
+  </app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-danger" (click)="onDestroyFirst()">Destroy First</button>
+      <app-server-element
+        *ngFor="let serverElement of serverElements"
+        [element]="serverElement">
+   <!-- <p>
+          <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+          <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+        </p> We could put this all here if server-element.component.html had <ng-content></ng-content> in it. -->
+      </app-server-element>
+    </div>
+  </div>
+</div>
